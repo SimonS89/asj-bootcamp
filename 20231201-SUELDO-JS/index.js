@@ -69,7 +69,7 @@
 // let comidasXDia = parseInt(prompt("ingrese las comidas diarias a realizar"));
 
 // function costoXComida(presupuesto, comidasXDia, diasViaje) {
-//   return presupuesto / (comidasXDia * diasViaje);
+//   return Math.floor(presupuesto / (comidasXDia * diasViaje));
 // }
 
 // function mensaje(presupuesto, comidasXDia, diasViaje) {
