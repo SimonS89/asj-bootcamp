@@ -194,3 +194,37 @@ traer la cuenta, propina.
 //       break;
 //   }
 // } while (bienvenida != "3");
+
+/* For */
+
+/* Piramide */
+
+// let numero = parseInt(prompt("Ingrese un numero"));
+// let piramide;
+
+// for (let i = 0; i < numero; i++) {
+//   piramide = "*";
+//   for (let j = 0; j < i; j++) {
+//     piramide += "*";
+//   }
+//   console.log(piramide);
+// }
+
+// for (let i = numero - 1; i > 0; i--) {
+//   piramide = "";
+//   for (let j = 0; j < i; j++) {
+//     piramide += "*";
+//   }
+//   console.log(piramide);
+// }
+
+/* Factorial */
+
+let numero = parseInt(prompt("Ingrese un numero"));
+let factorial = 1;
+
+for (let i = 1; i <= numero; i++) {
+  factorial *= i;
+}
+
+console.log(`El factorial de numero es : ${factorial}`);
