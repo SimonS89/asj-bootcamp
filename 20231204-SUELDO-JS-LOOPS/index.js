@@ -138,55 +138,59 @@ Mas opciones-  Pedir que cuente chiste, pedir de nuevo otra cosas,
 traer la cuenta, propina.
 */
 
-let total = 0;
-let bienvenida;
-do {
-  bienvenida = prompt(
-    "Bienvenido a nuestro restaurant Elija una opcion : \n1. Ordenar. \n2. pedir un chiste. \n3. Pedir la cuenta."
-  );
-  switch (bienvenida) {
-    case "1":
-      let menu;
-      do {
-        menu = prompt(
-          "Que desea consumir/agregar? \n1. Gaseosa $100 \n2. medialuna $200 \n3. cafe $300\n4. pizza $400\n5. Volver al menu principal."
-        );
-        switch (menu) {
-          case "1":
-            total += 100;
-            alert("Te agregamos una gaseosa, costo total al momento $" + total);
-            break;
-          case "2":
-            total += 200;
-            alert(
-              "Te agregamos una medialuna, costo total al momento $" + total
-            );
-            break;
-          case "3":
-            total += 300;
-            alert("Te agregamos un cafe, costo total al momento $" + total);
-            break;
-          case "4":
-            total += 400;
-            alert("Te agregamos una pizza, costo total al momento $" + total);
-            break;
-          case "5":
-            alert("volviendo al menu principal");
-            break;
-          default:
-            alert("Opcion incorrecta");
-            break;
-        }
-      } while (menu != "5");
-      break;
-    case "2":
-      alert("¿Qué le dice un .GIF a un .JPEG? -Anímate viejo.");
-      break;
-    case "3":
-      alert(
-        `lo consumido tiene un costo de $ ${total}, con una recarga de $ ${
-          total * 0.1
-        } , total $ ${total + total * 0.1}. Vuelva pronto`
-      );
-  }
-} while (bienvenida != "3");
+// let total = 0;
+// let bienvenida;
+// do {
+//   bienvenida = prompt(
+//     "Bienvenido a nuestro restaurant Elija una opcion : \n1. Ordenar. \n2. pedir un chiste. \n3. Pedir la cuenta."
+//   );
+//   switch (bienvenida) {
+//     case "1":
+//       let menu;
+//       do {
+//         menu = prompt(
+//           "Que desea consumir/agregar? \n1. Gaseosa $100 \n2. medialuna $200 \n3. cafe $300\n4. pizza $400\n5. Volver al menu principal."
+//         );
+//         switch (menu) {
+//           case "1":
+//             total += 100;
+//             alert("Te agregamos una gaseosa, costo total al momento $" + total);
+//             break;
+//           case "2":
+//             total += 200;
+//             alert(
+//               "Te agregamos una medialuna, costo total al momento $" + total
+//             );
+//             break;
+//           case "3":
+//             total += 300;
+//             alert("Te agregamos un cafe, costo total al momento $" + total);
+//             break;
+//           case "4":
+//             total += 400;
+//             alert("Te agregamos una pizza, costo total al momento $" + total);
+//             break;
+//           case "5":
+//             alert("volviendo al menu principal");
+//             break;
+//           default:
+//             alert("Opcion incorrecta");
+//             break;
+//         }
+//       } while (menu != "5");
+//       break;
+//     case "2":
+//       alert("¿Qué le dice un .GIF a un .JPEG? -Anímate viejo.");
+//       break;
+//     case "3":
+//       alert(
+//         `lo consumido tiene un costo de $ ${total}, con una recarga de $ ${
+//           total * 0.1
+//         } , total $ ${total + total * 0.1}. Vuelva pronto`
+//       );
+//       break;
+//     default:
+//       alert("Opcion incorrecta");
+//       break;
+//   }
+// } while (bienvenida != "3");
