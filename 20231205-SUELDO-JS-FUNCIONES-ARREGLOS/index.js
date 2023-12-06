@@ -118,12 +118,15 @@ let lastOp = "";
 
 for (const botonNum of botonesNum) {
   botonNum.addEventListener("click", (e) => {
+    //seteamos al display el numero inicial, o concatenamos
+    //los numeros segun flag
     if (flag) {
       display.textContent = e.target.textContent;
       flag = false;
     } else {
       display.textContent += e.target.textContent;
     }
+    //concatenamos en num los numeros pulsados
     num += e.target.textContent;
   });
 }
@@ -141,11 +144,9 @@ for (const botonOp of botonesOp) {
       num = "";
       flag = true;
     }
-    if (e.target.textContent === "=") {
-      lastOp = "";
-    } else {
-      lastOp = e.target.textContent;
-    }
+    e.target.textContent === "="
+      ? (lastOp = "")
+      : (lastOp = e.target.textContent);
   });
 }
 
