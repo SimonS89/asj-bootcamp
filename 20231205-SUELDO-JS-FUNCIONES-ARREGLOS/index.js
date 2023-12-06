@@ -110,41 +110,52 @@ const botonesNum = document.getElementsByClassName("btnNum");
 const botonClear = document.querySelector(".btnClear");
 const botonesOp = document.getElementsByClassName("btnOp");
 
-let param1 = "";
-let param2 = "";
+let num = "";
 let flag = false;
 let operation = "";
 let result = "";
+let lastOp = "";
 
 for (const botonNum of botonesNum) {
   botonNum.addEventListener("click", (e) => {
-    if (!flag) {
-      param1 += e.target.textContent;
-      display.textContent = param1;
+    if (flag) {
+      display.textContent = e.target.textContent;
+      flag = false;
     } else {
-      param2 += e.target.textContent;
-      display.textContent = param2;
+      display.textContent += e.target.textContent;
     }
+    num += e.target.textContent;
   });
 }
 
 for (const botonOp of botonesOp) {
   botonOp.addEventListener("click", (e) => {
-    if (e.target.textContent == "=") {
-      display.textContent = calcular(param1, param2, operation);
+    if (num !== "") {
+      num = parseFloat(num);
+      if (result === "") {
+        result = num;
+      } else {
+        result = calcular(result, num, lastOp);
+        display.textContent = result;
+      }
+      num = "";
+      flag = true;
     }
-    flag = !flag;
-    operation = e.target.textContent;
-    console.log(operation);
+    if (e.target.textContent === "=") {
+      lastOp = "";
+    } else {
+      lastOp = e.target.textContent;
+    }
   });
 }
 
 botonClear.addEventListener("click", () => {
   display.textContent = "0";
-  param1 = "";
-  param2 = "";
+  num = "";
+  result = "";
+  lastOp = "";
 });
 
 function calcular(param1, param2, op) {
-  return eval(parseInt(param1) + op + parseInt(param2));
+  return eval(param1 + op + param2);
 }
