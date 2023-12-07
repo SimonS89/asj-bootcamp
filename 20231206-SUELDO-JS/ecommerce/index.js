@@ -103,7 +103,6 @@ function setQuantity(opp) {
 
 function actualizarTabla() {
   table.innerHTML = "";
-  subtotal.textContent = `Subtotal $ : 0`;
   total = 0;
   let template = cart
     .map((item, index) => {
