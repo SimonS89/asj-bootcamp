@@ -1,0 +1,26 @@
+body {
+  background-color: coral;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  padding: 10px;
+  border: 2px black dashed;
+}
+
+button {
+  background-color: whitesmoke;
+  padding: 15px;
+  font-weight: bolder;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 10%;
+}

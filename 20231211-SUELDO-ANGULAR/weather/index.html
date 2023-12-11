@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Channel</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="encabezado">
+      <h1>Weather Channel</h1>
+      <input type="text" placeholder="Ingresá una ciudad" />
+      <button>ENVIAR</button>
+    </div>
+    <div class="container">
+      <ul class="ciudades">
+        <li>
+          <span id="ciudad"></span>
+        </li>
+        <li><span id="temperatura"></span><span id="grados"></span></li>
+        <li><span id="descripcion"></span></li>
+
+        <!-- <img id="wicon" src="" alt="Ícono del tiempo" /><br /> -->
+      </ul>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

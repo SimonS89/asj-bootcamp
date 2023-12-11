@@ -1,0 +1,40 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background: #0a1f44;
+  color: white;
+}
+
+.encabezado {
+  text-align: center;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 4rem;
+  letter-spacing: 0.02em;
+}
+
+button {
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  padding: 15px 20px;
+  margin-left: 15px;
+  border-radius: 5px;
+  background: #ff1e42;
+}
+
+button,
+input {
+  border: none;
+  background: none;
+  outline: none;
+  color: white;
+}
+
+input {
+  font-size: 2rem;
+  height: 40px;
+  padding: 5px 5px 10px;
+  border-bottom: 1px solid;
+}
