@@ -134,16 +134,21 @@ for (const botonNum of botonesNum) {
 for (const botonOp of botonesOp) {
   botonOp.addEventListener("click", (e) => {
     if (num !== "") {
+      //Si se ha ingresado un num, lo parseamos
       num = parseFloat(num);
       if (result === "") {
+        //Si result no fue inicializado aun, le asignamos num
         result = num;
       } else {
+        //si ya fue inicializado result, significa tambien que tenemos una lastOp guardada. Podemos calcular.
         result = calcular(result, num, lastOp);
         display.textContent = result;
       }
+      // reseteamos num y asignamos true al flag para mostrar los nuevos numeros an el display
       num = "";
       flag = true;
     }
+    //Si la operacion elegida es = , reseteamos lastOp, sino le asignamos la operacion actual para utilizarla en el proximo evento.
     e.target.textContent === "="
       ? (lastOp = "")
       : (lastOp = e.target.textContent);
