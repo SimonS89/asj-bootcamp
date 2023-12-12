@@ -19,8 +19,12 @@ function cargarCiudad(value) {
     .then((data) => {
       ciudad.textContent = data.name;
       let aCelsius = (data.main.temp - 273.15).toFixed(1);
-      grados.textContent = `${aCelsius}°C`;
+      grados.innerHTML = `${aCelsius}<sup>°C</sup>`;
       descripcion.textContent = data.weather[0].description;
+      wicon.setAttribute(
+        "src",
+        `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+      );
     })
     .catch((error) => alert(error));
 }
