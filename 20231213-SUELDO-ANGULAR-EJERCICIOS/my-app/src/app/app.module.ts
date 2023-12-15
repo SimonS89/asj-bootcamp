@@ -11,6 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './main/sidebar/sidebar.component';
 import { ProyectComponent } from './main/proyect/proyect.component';
 import { TodoListComponent } from './tasks/todo-list/todo-list.component';
+import { FormularioSimpsonComponent } from './tasks/formulario-simpson/formulario-simpson.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { TodoListComponent } from './tasks/todo-list/todo-list.component';
     SidebarComponent,
     ProyectComponent,
     TodoListComponent,
+    FormularioSimpsonComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule, FormsModule],
   providers: [],

@@ -1,0 +1,75 @@
+<div class="row align-items-center">
+  <h2 class="mb-5 text-center">Proyecto formulario Simpson</h2>
+  <div class="col-4 text-center fw-bolder">
+    <div class="mb-3">
+      <label for="inputNombre" class="form-label">Nombre Completo</label>
+      <input
+        type="text"
+        class="form-control form-floating"
+        id="inputNombre"
+        #inputNombre
+      />
+    </div>
+    <div class="mb-3">
+      <label for="inputProfesion" class="form-label">Profesion</label>
+      <input
+        type="text"
+        class="form-control form-floating"
+        id="inputProfesion"
+        #inputProfesion
+      />
+    </div>
+    <div class="mb-3">
+      <label for="inputImg" class="form-label">URL imagen</label>
+      <input
+        type="text"
+        class="form-control form-floating"
+        id="inputImg"
+        #inputUrl
+      />
+    </div>
+    <button
+      class="btn btn-primary w-100 fw-bolder"
+      (click)="
+        cargarPersonaje(
+          inputNombre.value,
+          inputProfesion.value,
+          inputUrl.value
+        );
+        inputNombre.value = '';
+        inputProfesion.value = '';
+        inputUrl.value = ''
+      "
+    >
+      Enviar
+    </button>
+  </div>
+  <div class="offset-1 col-7">
+    <table
+      class="table table-primary table-striped-columns text-center align-middle fw-bolder"
+    >
+      <thead>
+        <tr>
+          <th scope="col" class="align-middle">Index</th>
+          <th scope="col" class="align-middle">Nombre Completo</th>
+          <th scope="col" class="align-middle">Profesion</th>
+          <th scope="col" class="align-middle">Imagen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let personaje of personajes; index as i">
+          <th scope="row">{{ i }}</th>
+          <td class="text-center">{{ personaje.nombre | uppercase }}</td>
+          <td class="text-center">{{ personaje.profesion | uppercase }}</td>
+          <td class="text-center">
+            <img
+              class="object-fit-contain"
+              style="width: 7em"
+              [src]="personaje.urlImg"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
