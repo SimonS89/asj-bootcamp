@@ -1,0 +1,36 @@
+<div class="row p-5">
+  <table
+    class="table table-primary table-striped-columns text-center align-middle fw-bolder"
+  >
+    <thead>
+      <tr>
+        <th scope="col" class="align-middle">Imagen</th>
+        <th scope="col" class="align-middle">Nombre</th>
+        <th scope="col" class="align-middle">Especie</th>
+        <th scope="col" class="align-middle">Detalle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let personaje of characters">
+        <td class="text-center">
+          <img
+            class="object-fit-contain"
+            style="width: 7em"
+            [src]="personaje.image"
+          />
+        </td>
+        <td class="text-center">{{ personaje.name | uppercase }}</td>
+        <td class="text-center">{{ personaje.species | uppercase }}</td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-outline-success"
+            [routerLink]="['/rick-morty/' + personaje.id]"
+          >
+            Detalle
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

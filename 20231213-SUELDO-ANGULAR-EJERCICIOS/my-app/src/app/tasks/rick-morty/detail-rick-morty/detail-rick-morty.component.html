@@ -1,0 +1,25 @@
+<div class="row justify-content-center">
+  <div class="card mb-3" style="max-width: 70vw">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img
+          [src]="personaje.image"
+          class="img-fluid rounded-start"
+          alt="..."
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ personaje.name }}</h5>
+          <p class="card-text">Specie : {{ personaje.species }}</p>
+          <p class="card-text">Gender : {{ personaje.gender }}</p>
+          <p class="card-text">
+            <small class="text-body-secondary"
+              >Status: {{ personaje.status }}</small
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
