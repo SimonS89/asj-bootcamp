@@ -43,7 +43,7 @@ export class ProductDetailComponent implements OnInit {
         JSON.stringify(this.calcularTotal(this.cart))
       );
       localStorage.setItem('cart', JSON.stringify(this.cart));
-      localStorage.setItem('totalProducts', JSON.stringify(this.cart.length));
+      this.productService.countCartProducts(this.cart.length);
     }
   }
 

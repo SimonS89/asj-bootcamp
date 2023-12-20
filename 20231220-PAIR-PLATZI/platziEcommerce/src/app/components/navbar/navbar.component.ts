@@ -13,6 +13,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class NavbarComponent implements OnInit {
   categories!: Category[];
   cart!: Product[];
+  totalProducts: any = 0;
 
   constructor(
     public categoryService: CategoryService,
@@ -21,7 +22,6 @@ export class NavbarComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.list();
-    this.cantidadProductosCarrito();
   }
 
   list() {
@@ -32,9 +32,5 @@ export class NavbarComponent implements OnInit {
 
   redirigir(id: number) {
     this.router.navigate(['/productos/categories', id]);
-  }
-
-  cantidadProductosCarrito() {
-    this.productService.countCartProducts();
   }
 }

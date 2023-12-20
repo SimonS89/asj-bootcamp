@@ -3,7 +3,12 @@
     <div id="carouselExample" class="carousel slide">
       <div class="carousel-inner">
         <div class="carousel-item active" *ngFor="let img of producto.images">
-          <img [src]="img" class="d-block w-100" alt="..." />
+          <img
+            [src]="img"
+            class="d-block w-100 object-fit-contain"
+            style="max-height: 70vh"
+            alt="..."
+          />
         </div>
       </div>
       <button
@@ -28,16 +33,24 @@
   </div>
   <div class="col-6 text-center">
     <div class="card text-center">
-      <div class="card-header">Categoria : {{ producto.category.name }}</div>
+      <div class="card-header fs-2">
+        <strong>Categoria : {{ producto.category.name }}</strong>
+      </div>
       <div class="card-body">
-        <h5 class="card-title">{{ producto.title }}</h5>
-        <p class="card-text">
+        <h3 class="card-title fs-2">{{ producto.title }}</h3>
+        <p class="card-text fs-4">
           {{ producto.description }}
         </p>
-        <button href="#" class="btn btn-primary" (click)="comprar(producto)">Comprar</button>
+        <button
+          href="#"
+          class="btn btn-lg btn-primary fw-bolder"
+          (click)="comprar(producto)"
+        >
+          Buy
+        </button>
       </div>
-      <div class="card-footer text-body-secondary">
-        Price : {{ producto.price }}
+      <div class="card-footer text-body-secondary fs-4">
+        Price : ${{ producto.price }}
       </div>
     </div>
   </div>
