@@ -10,6 +10,7 @@ import { Product } from 'src/app/models/Product';
 })
 export class ProductDetailComponent implements OnInit {
   producto!: Product;
+  cart!: Product[];
 
   constructor(
     public productService: ProductService,
@@ -28,5 +29,17 @@ export class ProductDetailComponent implements OnInit {
     this.productService.findById(id)?.subscribe((prod) => {
       if (prod) this.producto = { ...prod };
     });
+  }
+
+  comprar(producto: Product) {
+    let confirmar = confirm(`¿Desea comprar el producto ${producto.title}?`);
+    if (confirmar) {
+      let cartString = localStorage.getItem('cart');
+      if (cartString) this.cart = JSON.parse(cartString);
+      else this.cart = [];
+      this.cart.push(producto);
+      localStorage.setItem('cart', JSON.stringify(this.cart));
+      localStorage.setItem('totalProducts', JSON.stringify(this.cart.length));
+    }
   }
 }

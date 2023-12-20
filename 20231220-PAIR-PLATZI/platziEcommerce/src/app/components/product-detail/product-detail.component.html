@@ -34,7 +34,7 @@
         <p class="card-text">
           {{ producto.description }}
         </p>
-        <a href="#" class="btn btn-primary">Comprar</a>
+        <button href="#" class="btn btn-primary" (click)="comprar(producto)">Comprar</button>
       </div>
       <div class="card-footer text-body-secondary">
         Price : {{ producto.price }}
