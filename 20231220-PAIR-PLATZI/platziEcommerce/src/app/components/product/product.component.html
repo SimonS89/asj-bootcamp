@@ -1,0 +1,17 @@
+<div class="row row-cols-1 row-cols-md-3 g-4 mt-5">
+  <div class="col-3 text-center" *ngFor="let product of products">
+    <div class="card" (click)="redirigido(product.id)">
+      <img
+        [src]="product.images[0]"
+        class="card-img-top object-fit-contain"
+        style="height: 10em"
+        [alt]="product.title"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ product.title }}</h5>
+        <p>Price ${{ product.price }}</p>
+        <!-- <button class="btn btn-primary">Ver mas</button> -->
+      </div>
+    </div>
+  </div>
+</div>
