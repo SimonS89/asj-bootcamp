@@ -38,8 +38,16 @@ export class ProductDetailComponent implements OnInit {
       if (cartString) this.cart = JSON.parse(cartString);
       else this.cart = [];
       this.cart.push(producto);
+      localStorage.setItem(
+        'totalCost',
+        JSON.stringify(this.calcularTotal(this.cart))
+      );
       localStorage.setItem('cart', JSON.stringify(this.cart));
       localStorage.setItem('totalProducts', JSON.stringify(this.cart.length));
     }
+  }
+
+  calcularTotal(cart: any) {
+    return cart.map((p: any) => p.price).reduce((a: any, b: any) => a + b);
   }
 }
