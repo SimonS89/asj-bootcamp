@@ -1,10 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CategoryService } from 'src/app/services/category.service';
+import { Router } from '@angular/router';
+import { Category } from 'src/app/models/Category';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
+  categories!: Category[];
 
+  constructor(
+    public categoryService: CategoryService,
+    private router: Router
+  ) {}
+  ngOnInit(): void {
+    this.list();
+  }
+
+  list() {
+    this.categoryService.getAll()?.subscribe((res) => {
+      this.categories = res;
+    });
+  }
+
+  redirigir(id: number) {
+    this.router.navigate(['/productos/categories', id]);
+  }
 }

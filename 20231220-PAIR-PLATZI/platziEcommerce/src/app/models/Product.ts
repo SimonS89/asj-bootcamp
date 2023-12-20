@@ -8,5 +8,5 @@ export interface Product {
     name: string;
     image: string;
   };
-  images: [any, any, any];
+  images: string[];
 }

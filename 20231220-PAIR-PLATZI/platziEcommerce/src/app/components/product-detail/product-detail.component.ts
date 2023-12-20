@@ -9,18 +9,7 @@ import { Product } from 'src/app/models/Product';
   styleUrls: ['./product-detail.component.css'],
 })
 export class ProductDetailComponent implements OnInit {
-  producto: Product = {
-    id: 0,
-    title: '',
-    price: 0,
-    description: '',
-    category: {
-      id: 0,
-      name: '',
-      image: '',
-    },
-    images: ['', '', ''],
-  };
+  producto!: Product;
 
   constructor(
     public productService: ProductService,
@@ -28,11 +17,16 @@ export class ProductDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // this.route.params.subscribe((data) => {
+    //   const id = data['id'];
+    //   this.productService.findById(id)?.subscribe((prod) => {
+    //     if (prod) this.producto = { ...prod };
+    //     console.log(this.producto);
+    //   });
+    // });
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.productService.findById(id)?.subscribe((prod) => {
-      if (prod) {
-        this.producto = { ...prod };
-      }
+      if (prod) this.producto = { ...prod };
     });
   }
 }
