@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
 import { Product } from 'src/app/models/Product';
+import { Cart } from 'src/app/models/Cart';
 
 @Component({
   selector: 'app-product-detail',
@@ -10,7 +11,7 @@ import { Product } from 'src/app/models/Product';
 })
 export class ProductDetailComponent implements OnInit {
   producto!: Product;
-  cart!: Product[];
+  cart!: Cart;
 
   constructor(
     public productService: ProductService,
@@ -18,13 +19,6 @@ export class ProductDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.route.params.subscribe((data) => {
-    //   const id = data['id'];
-    //   this.productService.findById(id)?.subscribe((prod) => {
-    //     if (prod) this.producto = { ...prod };
-    //     console.log(this.producto);
-    //   });
-    // });
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.productService.findById(id)?.subscribe((prod) => {
       if (prod) this.producto = { ...prod };
@@ -36,18 +30,16 @@ export class ProductDetailComponent implements OnInit {
     if (confirmar) {
       let cartString = localStorage.getItem('cart');
       if (cartString) this.cart = JSON.parse(cartString);
-      else this.cart = [];
-      this.cart.push(producto);
-      localStorage.setItem(
-        'totalCost',
-        JSON.stringify(this.calcularTotal(this.cart))
-      );
-      localStorage.setItem('cart', JSON.stringify(this.cart));
-      this.productService.countCartProducts(this.cart.length);
+      else this.cart = { products: [], totalProducts: 0 };
+      producto.quantity = 1;
+      this.cart.products.push(producto);
+      this.cart.totalProducts = this.cart.products.length;
+      this.productService.setStorage('cart', this.cart);
     }
   }
 
-  calcularTotal(cart: any) {
-    return cart.map((p: any) => p.price).reduce((a: any, b: any) => a + b);
+  handleImageError(event: any) {
+    event.target.src =
+      'https://img.freepik.com/vector-premium/foto-vacia-sombra-pegada-cinta-adhesiva-ilustracion_87543-3824.jpg';
   }
 }

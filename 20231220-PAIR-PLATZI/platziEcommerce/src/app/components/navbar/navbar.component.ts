@@ -19,7 +19,12 @@ export class NavbarComponent implements OnInit {
     public categoryService: CategoryService,
     private router: Router,
     public productService: ProductService
-  ) {}
+  ) {
+    this.productService.totalProducts$.subscribe((totalProducts) => {
+      this.totalProducts = totalProducts;
+    });
+  }
+
   ngOnInit(): void {
     this.list();
   }
