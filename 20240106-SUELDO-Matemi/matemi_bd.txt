@@ -1,0 +1,158 @@
+--insert into empresas (nombre) values ('matemi');
+--insert into paises (nombre) values ('Argentina');
+--insert into paises (nombre) values ('Uruguay');
+--insert into provincias(nombre,id_pais) values ('Buenos Aires',1);
+--update provincias set id_pais = 1 where id=2;
+--insert into ciudades (nombre, codigo_postal,id_provincia) values ('La Plata','1900',1);
+--insert into ubicaciones (calle,numero,id_ciudad) values ('142','1123',1),('32','2237',1);
+--select * from ubicaciones;
+
+/*CREATE TABLE empresas(
+    id BIGINT PRIMARY KEY NOT NULL IDENTITY(1,1),
+    nombre VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE paises(
+    id BIGINT PRIMARY key NOT NULL IDENTITY(1,1),
+    nombre VARCHAR(50)  NOT NULL,
+);
+
+CREATE TABLE provincias (
+    id BIGINT primary key NOT NULL IDENTITY(1,1),
+    nombre VARCHAR(50) NOT NULL,
+    id_pais BIGINT NOT NULL,
+    FOREIGN KEY (id_pais) REFERENCES paises (id)
+);
+
+CREATE TABLE ciudades(
+    id BIGINT PRIMARY KEY NOT NULL IDENTITY(1,1),
+    nombre VARCHAR(50)  NOT NULL,
+    codigo_postal VARCHAR(50)  NOT NULL,
+    id_provincia BIGINT NOT NULL,
+  FOREIGN KEY (id_provincia) REFERENCES provincias (id)
+);
+
+CREATE TABLE ubicaciones(
+    id BIGINT PRIMARY KEY NOT NULL IDENTITY(1,1),
+    calle VARCHAR(50)  NOT NULL,
+    numero VARCHAR(50)  NOT NULL,
+    id_ciudad BIGINT NOT NULL,
+  FOREIGN KEY (id_ciudad) REFERENCES ciudades (id)
+);
+
+CREATE TABLE sucursales(
+    id BIGINT primary key NOT NULL IDENTITY(1,1),
+    nombre VARCHAR(50)  NOT NULL,
+    id_empresa BIGINT NOT NULL,
+    id_ubicacion BIGINT NOT NULL,
+  FOREIGN KEY (id_empresa) REFERENCES empresas (id),
+  FOREIGN KEY (id_ubicacion) REFERENCES ubicaciones (id)
+);
+
+CREATE TABLE clientes(
+    id BIGINT PRIMARY KEY NOT NULL IDENTITY(1,1),
+    nombre VARCHAR(50)  NOT NULL,
+    apellido VARCHAR(50)  NOT NULL,
+    email VARCHAR(50)  NOT NULL,
+    telefono VARCHAR(50)  NOT NULL,
+    fecha_nacimiento DATE NULL,
+    is_socio BIT NOT NULL,
+    id_ubicacion BIGINT NOT NULL,
+    id_sucursal BIGINT NOT NULL,
+  FOREIGN KEY (id_ubicacion) REFERENCES ubicaciones (id),
+  FOREIGN KEY (id_sucursal) REFERENCES sucursales (id)
+);
+
+CREATE TABLE empleados(
+    id BIGINT primary key NOT NULL IDENTITY(1,1),
+    nombre VARCHAR(50)  NOT NULL,
+    apellido VARCHAR(50)  NOT NULL,
+    dni VARCHAR(50)  NOT NULL,
+    telefono VARCHAR(50)  NOT NULL,
+    email VARCHAR(50)  NOT NULL,
+    legajo VARCHAR(50)  NOT NULL,
+    id_sucursal BIGINT NOT NULL,
+    id_ubicacion BIGINT NOT NULL,
+  FOREIGN key (id_sucursal) REFERENCES sucursales (id),
+  FOREIGN KEY (id_ubicacion) REFERENCES ubicaciones (id)
+);
+
+CREATE TABLE tipos_producto(
+    id BIGINT primary key NOT NULL IDENTITY(1,1),
+    tipo VARCHAR(50)  NOT NULL);
+    
+CREATE TABLE generos(
+    id BIGINT primary key NOT NULL IDENTITY(1,1),
+    genero VARCHAR(50)  NOT NULL);
+
+    
+CREATE TABLE formatos_producto(
+    id BIGINT primary key NOT NULL IDENTITY(1,1),
+    formato VARCHAR(50)  NOT NULL
+);
+
+CREATE TABLE medios_pago(
+    id BIGINT primary key NOT NULL IDENTITY(1,1),
+    medio_pago VARCHAR(50)  NOT NULL
+);
+
+CREATE TABLE pedidos(
+    id BIGINT PRIMARY KEY NOT NULL IDENTITY(1,1),
+    nro_pedido BIGINT NOT NULL,
+    fecha DATE NOT NULL,
+    total FLOAT NOT NULL,
+    descuento FLOAT NOT NULL,
+    id_cliente BIGINT NOT NULL,
+    id_empleado BIGINT NOT NULL,
+    id_medios_pago BIGINT NOT NULL,
+  FOREIGN KEY (id_cliente) REFERENCES clientes (id),
+  FOREIGN key (id_empleado) REFERENCES empleados (id),
+  FOREIGN KEY (id_medios_pago) REFERENCES medios_pago (id)
+);
+
+CREATE TABLE facturas(
+    id BIGINT PRIMARY KEY NOT NULL IDENTITY(1,1),
+    total FLOAT NOT NULL,
+    fecha DATE NOT NULL,
+  id_pedido BIGINT NOT NULL,
+  FOREIGN KEY (id_pedido) REFERENCES pedidos (id)
+);
+
+CREATE TABLE productos(
+    id BIGINT PRIMARY KEY NOT NULL IDENTITY(1,1),
+    titulo VARCHAR(50)  NOT NULL,
+    stock_total BIGINT NOT NULL,
+    min_stock BIGINT NOT NULL,
+    autor VARCHAR(50)  NOT NULL,
+    descripcion BIGINT NULL,
+    precio_venta FLOAT NOT NULL,
+    precio_alquiler FLOAT NULL,
+    id_tipos_producto BIGINT NOT NULL,
+    id_genero BIGINT NOT NULL,
+    id_formatos_producto BIGINT NOT NULL,
+    id_sucursal BIGINT NOT NULL,
+    FOREIGN KEY (id_tipos_producto) REFERENCES tipos_producto (id),
+    FOREIGN KEY (id_genero) REFERENCES generos (id),
+    FOREIGN KEY (id_formatos_producto) REFERENCES formatos_producto (id),
+    FOREIGN KEY (id_sucursal) REFERENCES sucursales (id)
+);
+
+CREATE TABLE detalles_pedido(
+    id BIGINT PRIMARY KEY NOT NULL IDENTITY(1,1),
+    cantidad INT NOT NULL,
+    is_compra BIT NOT NULL,
+    precio FLOAT NOT NULL,
+    fecha_devolucion DATE NULL,
+    id_producto BIGINT NOT NULL,
+    id_pedido BIGINT NOT NULL,
+  FOREIGN KEY (id_producto) REFERENCES productos (id),
+  FOREIGN KEY (id_pedido) REFERENCES pedidos (id)
+);
+
+CREATE TABLE penalizaciones(
+  id BIGINT PRIMARY KEY NOT NULL IDENTITY(1,1),
+  fecha_devolucion_real DATE null,
+  monto_por_dia float not null,
+  id_detalles_pedido bigint null,
+  FOREIGN KEY (id_detalles_pedido) REFERENCES detalles_pedido (id)
+);*/
