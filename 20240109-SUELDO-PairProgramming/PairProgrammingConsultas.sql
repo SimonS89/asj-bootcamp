@@ -67,7 +67,7 @@ ORDER BY Duracion DESC
 SELECT ROUND(SUM(c.duracion),2) AS DuracionTotalArtista,a.nombre AS NombreArtista
 FROM artista a INNER JOIN album al ON a.id = al.artista_id INNER JOIN canciones c ON c.album_id = al.id
 GROUP BY a.nombre
-ORDER BY a.nombre DESC
+ORDER BY DuracionTotalArtista DESC
 
 -- 11 - Que artistas y album no tienen canciones de menos de 5 minutos?
 
@@ -79,15 +79,15 @@ GROUP BY a.nombre, al.nombre
 -- 12 - Mostrar el top 3 de artistas con el promedio de duración de las canciones, en orden descendente con la canción mas larga primero
 
 -- Vista top3promedio
-SELECT TOP 3 a.id AS ArtistaID, a.nombre AS NombreArtista, AVG(c.duracion) AS PromedioDuracionCancion, MAX(c.duracion) AS DuracionCancionMasLarga
+/*SELECT TOP 3 a.id AS ArtistaID, a.nombre AS NombreArtista, AVG(c.duracion) AS PromedioDuracionCancion, MAX(c.duracion) AS DuracionCancionMasLarga
 FROM artista a INNER JOIN album al ON a.id = al.artista_id INNER JOIN canciones c ON c.album_id = al.id 
 GROUP BY a.id, a.nombre
-ORDER BY PromedioDuracionCancion DESC, DuracionCancionMasLarga DESC;
+ORDER BY PromedioDuracionCancion DESC, DuracionCancionMasLarga DESC;*/
 
 -- Uso de la vista y union con el nombre de la cancion
-SELECT tt.*,c.nombre AS CancionMasLarga
+/*SELECT tt.*,c.nombre AS CancionMasLarga
 FROM top3promedio tt INNER JOIN canciones c ON c.duracion = tt.DuracionCancionMasLarga
-ORDER BY tt.PromedioDuracionCancion DESC
+ORDER BY tt.PromedioDuracionCancion DESC*/
 
 -- Hecho con subconsultas
 SELECT TOP 3 a.id AS ArtistaID, a.nombre AS NombreArtista, AVG(c.duracion) AS PromedioDuracionCancion, MAX(c.duracion) AS DuracionCancionMasLarga, (SELECT TOP 1 can.nombre FROM canciones can INNER JOIN album alb ON can.album_id = alb.id WHERE alb.artista_id = a.id ORDER BY can.duracion DESC) AS NombreCancionMasLarga
@@ -97,13 +97,13 @@ ORDER BY PromedioDuracionCancion DESC, DuracionCancionMasLarga DESC;
 
 -- 13 - Qué artistas no lanzaron un album durante la decada de 1980 y 1990?
 
-SELECT DISTINCT a.nombre AS NombreArtista,al.anio
+SELECT DISTINCT a.nombre AS NombreArtista
 FROM artista a INNER JOIN album al ON a.id = al.artista_id INNER JOIN canciones c ON c.album_id = al.id
-WHERE al.anio < 1980 OR al.anio > 1990 AND a.id NOT IN (SELECT a.id FROM artista a INNER JOIN album al ON a.id = al.artista_id INNER JOIN canciones c ON c.album_id = al.id  WHERE al.anio > 1980 AND al.anio < 1990)
+WHERE a.id NOT IN (SELECT a.id FROM artista a INNER JOIN album al ON a.id = al.artista_id INNER JOIN canciones c ON c.album_id = al.id  WHERE al.anio > 1980 AND al.anio < 1990)
 
 -- 14 - Duración total del album Sgt. Pepper's de los Beatles (mostrar en minutos y segundos)
 
 SELECT a.nombre AS NombreAlbum,ROUND(SUM(c.duracion) * 60,2) AS TotalDuracionSegundos,CONVERT(VARCHAR, DATEADD(SECOND, SUM(c.duracion) * 60, 0), 108) AS TotalDuracionFormatoMinutosSegundos
 FROM canciones c INNER JOIN album a ON c.album_id = a.id
 WHERE a.nombre LIKE 'Sgt%'
-GROUP BY a.nombre
+GROUP BY a.nombre;
