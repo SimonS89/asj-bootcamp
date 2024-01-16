@@ -109,16 +109,7 @@ public class Main {
 		 */
 		
 		  System.out.println("Ingrese un numero"); int numero = scanner.nextInt();
-		  
-		  for (int i = 0; i < numero; i++) { 
-			  int cantidadAsteriscos = (i % 2 == 0) ? numero : numero - 1; 
-			  for (int k = 0; k < cantidadAsteriscos; k++) { 
-				  if(cantidadAsteriscos < numero && k == 0) { 
-					  System.out.print("  * "); 
-					  } else System.out.print(" * "); } 
-			  System.out.println(); 
-			  }
-		 
+		   
 
 		scanner.close();
 	}
