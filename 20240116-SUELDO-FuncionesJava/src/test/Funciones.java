@@ -1,19 +1,20 @@
 package test;
 
 import java.time.LocalDate;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class Funciones {
 
 	public static void main(String[] args) {
 
-		menu();
+//		menu();
 //		ejercicioDos();
 //		ejercicioTres();
 //		mostrarMatriz(ejercicioCuatro());
 //		ejercicioCinco();
 //		ejercicioSeis();
-//		ejercicioSiete();
+		ejercicioSiete();
 
 	}
 
@@ -131,7 +132,7 @@ public class Funciones {
 	}
 
 	/* Ejercicio 3 */
-	
+
 	public static void ejercicioTres() {
 		int[] vector = new int[20];
 		int[] vectorOrdenado = new int[20];
@@ -165,7 +166,7 @@ public class Funciones {
 	public static boolean esPar(int num) {
 		return num == 0 || (num > 1 && num % 2 == 0);
 	}
-	
+
 	/* Ejercicio 4 */
 
 	public static int[][] ejercicioCuatro() {
@@ -198,7 +199,7 @@ public class Funciones {
 		}
 		return false;
 	}
-	
+
 	/* Ejercicio 5 */
 
 	public static void ejercicioCinco() {
@@ -245,7 +246,7 @@ public class Funciones {
 			System.out.println();
 		}
 	}
-	
+
 	/* Ejercicio 6 */
 
 	public static void ejercicioSeis() {
@@ -331,24 +332,112 @@ public class Funciones {
 
 		} while (opcion != 7);
 	}
-	
+
 	/* Ejercicio 7 */
 
 	public static void ejercicioSiete() {
 		int[][] matrizPersonas = new int[10][3];
+		int opcion;
 
 		for (int j = 0; j < matrizPersonas.length; j++) {
 			for (int k = 0; k < matrizPersonas[j].length; k++) {
 				if (k < 2)
 					matrizPersonas[j][k] = (int) (Math.random() * 2) + 1;
 				else
-					matrizPersonas[j][k] = (int) (Math.random() * (2000 - 600 + 1) + 600);
+					matrizPersonas[j][k] = (matrizPersonas[j][1] == 2) ? 0
+							: (int) (Math.random() * (2000 - 600 + 1) + 600);
 			}
 		}
 
-		mostrarMatriz(matrizPersonas);
+		do {
+			System.out.println(
+					"Que operacion desea realizar?\n1.Ver matriz.\n2.Porcentaje hombres.\n3.Porcentaje mujeres.\n4.Porcentaje hombres que trabajan.\n5.Porcentaje mujeres que trabajan.\n6.Sueldo promedio hombres.\n7.Sueldo promedio mujeres.\n8.Salir.");
+			opcion = scanner.nextInt();
+			switch (opcion) {
+			case 1: {
+				System.out.println("Mostrando matriz");
+				mostrarMatriz(matrizPersonas);
+				break;
+			}
+			case 2: {
+				System.out.println(
+						"El porcentaje de hombres es de : " + porcentajeTotalPorGenero(matrizPersonas, 1) + "%");
+				break;
+			}
+			case 3: {
+				System.out.println(
+						"El porcentaje de mujeres es de : " + porcentajeTotalPorGenero(matrizPersonas, 2) + "%");
+				break;
+			}
+			case 4: {
+				System.out.println("El porcentaje de hombres que trabajan es de : "
+						+ porcentajeTotalTrabajanGenero(matrizPersonas, 1) + "%");
+				break;
+			}
+			case 5: {
+				System.out.println("El porcentaje de mujeres que trabajan es de : "
+						+ porcentajeTotalTrabajanGenero(matrizPersonas, 2) + "%");
+				break;
+			}
+			case 6: {
+				System.out.println("El sueldo promedio de los hombres es de $"+sueldoPromedioGenero(matrizPersonas, 1));
+				break;
+			}
+			case 7: {
+				System.out.println("El sueldo promedio de las mujeres es de $"+sueldoPromedioGenero(matrizPersonas, 2));
+				break;
+			}
+			case 8: {
+				System.out.println("Gracias por utilizar nuestra aplicacion");
+				break;
+			}
+			default:
+				System.out.println("Opcion incorrecta");
+				break;
+			}
+
+		} while (opcion != 8);
 	}
-	
+
+	public static int cantidadPorGenero(int[][] matriz, int genero) {
+		int cantidad = 0;
+		for (int[] persona : matriz) {
+			if (persona[0] == genero)
+				cantidad++;
+		}
+		return cantidad;
+	}
+
+	public static int cantidadPorGeneroTrabajan(int[][] matriz, int genero) {
+		int contador = 0;
+		for (int[] persona : matriz) {
+			if (persona[0] == genero && persona[1] == 1) {
+				contador++;
+			}
+		}
+		return contador;
+	}
+
+	public static double porcentajeTotalPorGenero(int[][] matriz, int genero) {
+		return (cantidadPorGenero(matriz, genero) * 100) / matriz.length;
+	}
+
+	public static double porcentajeTotalTrabajanGenero(int[][] matriz, int genero) {
+		int totalGenero = cantidadPorGenero(matriz, genero);
+		return (cantidadPorGeneroTrabajan(matriz, genero) * 100.0) / totalGenero;
+	}
+
+	public static double sueldoPromedioGenero(int[][] matriz, int genero) {
+		int cantidadGeneroTrabajan = cantidadPorGeneroTrabajan(matriz, genero);
+		double sueldoTotal = 0;
+		for (int[] persona : matriz) {
+			if (persona[0] == genero) {
+				sueldoTotal += persona[2];
+			}
+		}
+		return sueldoTotal / cantidadGeneroTrabajan;
+	}
+
 //	 private static String traducirNumeros(String numeros) {
 //	        StringBuilder resultado = new StringBuilder();
 //
@@ -388,6 +477,6 @@ public class Funciones {
 //	        }
 //
 //	        return resultado.toString();
-//	    }
+//	
 
 }
