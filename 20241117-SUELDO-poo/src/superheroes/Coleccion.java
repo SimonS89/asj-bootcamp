@@ -38,9 +38,7 @@ public class Coleccion {
 				encontrada = true;
 				figura.subirPrecio(cantidad);
 			}
-
 			i++;
-
 		}
 	}
 

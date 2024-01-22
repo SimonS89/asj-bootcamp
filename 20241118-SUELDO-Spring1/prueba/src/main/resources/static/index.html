@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!--     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
+<title>Alumnos</title>
+</head>
+<body>
+	<h1>Alumnos</h1>
+	<div>
+		<h2>Crear/Editar alumnos</h2>
+		<form id="formAlumno">
+			<div>
+				<label for="inputId">Id : <input type="text" id="inputId"
+					placeHolder="Ingrese el Id" name="id">
+				</label>
+			</div>
+			<div>
+				<label for="inputNombre">Nombre : <input type="text"
+					id="inputNombre" placeHolder="Ingrese el nombre" name="nombre"
+					required>
+				</label>
+			</div>
+			<div>
+				<label for="inputApellido">Apellido : <input type="text"
+					id="inputApellido" placeHolder="Ingrese el apellido"
+					name="apellido" required>
+				</label>
+			</div>
+			<div>
+				<label for="inputNota">Nota : <input type="number"
+					id="inputNota" placeHolder="Ingrese la nota" name="nota" required>
+				</label>
+			</div>
+			<button type="submit" class="btn btn-success btn-lg">Enviar</button>
+		</form>
+	</div>
+	<div>
+		<h2>Listado de alumnos</h2>
+		<table id="tablaAlumnos">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Nombre</th>
+					<th>Apellido</th>
+					<th>Promedio</th>
+					<th>Acciones</th>
+				</tr>
+			</thead>
+			<tbody id="listaAlumnos"></tbody>
+		</table>
+	</div>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
+	<script src="index.js"></script>
+
+</body>
+</html>

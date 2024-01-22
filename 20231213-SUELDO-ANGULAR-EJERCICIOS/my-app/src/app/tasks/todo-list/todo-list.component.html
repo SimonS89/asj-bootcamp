@@ -12,48 +12,28 @@
       <option value="all">All</option>
       <option value="finished">Finished</option>
       <option value="unfinished">Unfinished</option>
-      <option value="deleted">Deleted</option>
     </select>
   </div>
 </div>
 <ul class="col-6 fw-bolder mt-5 fs-5">
-  <li *ngFor="let task of todoFiltered; index as i" class="mb-3">
+  <li *ngFor="let task of todoFiltered" class="mb-3">
     <span
       [ngClass]="
-        task.isFinished
+        task.finished
           ? 'text-success text-decoration-line-through'
-          : task.isDeleted
-          ? 'text-danger text-decoration-line-through'
           : 'bg-text-bg-primary'
       "
     >
-      <small class="text-muted"> {{ task.date }}</small>
+      <small class="text-muted"> {{ task.date | date : "dd/MM/yyyy" }}</small>
       {{ task.text }}
     </span>
     <button
       class="btn btn-danger me-3"
-      (click)="deleteTask(i)"
-      [disabled]="task.isFinished"
+      (click)="deleteTask(task.id!)"
+      [disabled]="task.finished"
     >
       Delete
     </button>
-    <button
-      class="btn btn-success"
-      (click)="finishTask(i)"
-      [disabled]="task.isDeleted"
-    >
-      Finish
-    </button>
+    <button class="btn btn-success" (click)="finishTask(task)">Finish</button>
   </li>
 </ul>
-
-<!-- <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Task</th>
-        <th scope="col">Date</th>
-        <th scope="col">Actions</th>
-      </tr>
-    </thead>
-    <tbody class="table-group-divider"></tbody>
-  </table> -->

@@ -43,7 +43,7 @@ public class Dimension {
 
 	@Override
 	public String toString() {
-		return " alto:" + alto + ", ancho: " + ancho + ", profundidad: " + profundidad;
+		return " alto: " + alto + ", ancho: " + ancho + ", profundidad: " + profundidad;
 	}
 			
 	public double getVolumne() {

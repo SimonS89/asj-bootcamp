@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import Task from 'src/app/model/Task';
+import { TodoListService } from 'src/app/service/todo-list.service';
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
@@ -8,50 +9,58 @@ import { Component, OnInit } from '@angular/core';
 export class TodoListComponent implements OnInit {
   input_value = '';
   selected_option = 'all';
-  todoList: any[] = [];
-  todoFiltered: any[] = [];
+  todoFiltered: Task[] = [];
+  todoList: Task[] = [];
+
+  constructor(private todoListService: TodoListService) {}
 
   ngOnInit() {
-    this.filteredTasks();
+    this.loadAllTasks();
   }
 
   addTask() {
-    let task = {
+    let task: Task = {
       text: this.input_value,
-      isDeleted: false,
-      date: new Date().toLocaleDateString('en-GB'),
-      isFinished: false,
+      date: new Date(),
+      finished: false,
     };
-    this.todoList.push(task);
     this.input_value = '';
+    this.todoListService.createTask(task).subscribe((res) => {
+      alert(`Tarea ID : ${res.id} Creada correctamente.`);
+      this.loadAllTasks();
+    });
   }
 
-  deleteTask(i: number) {
-    this.todoList[i].isDeleted = !this.todoList[i].isDeleted;
+  loadAllTasks() {
+    this.todoListService.getAllTasks().subscribe((tasks: Task[]) => {
+      this.todoList = tasks;
+      this.filteredTasks();
+    });
   }
 
-  finishTask(i: number) {
-    this.todoList[i].isFinished = !this.todoList[i].isFinished;
+  finishTask(task: Task) {
+    task.finished = !task.finished;
+    this.todoListService.updateTask(task.id!, task).subscribe((res) => {
+      this.loadAllTasks();
+    });
+  }
+
+  deleteTask(id: number) {
+    this.todoListService.deleteTask(id).subscribe((res) => {
+      this.loadAllTasks();
+    });
   }
 
   filteredTasks() {
     switch (this.selected_option) {
       case 'finished':
-        this.todoFiltered = this.todoList.filter((task) => task.isFinished);
+        this.todoFiltered = this.todoList.filter((task) => task.finished);
         break;
       case 'unfinished':
-        this.todoFiltered = this.todoList.filter(
-          (task) => !task.isFinished && !task.isDeleted
-        );
-        break;
-      case 'all':
-        this.todoFiltered = this.todoList;
-        break;
-      case 'deleted':
-        this.todoFiltered = this.todoList.filter((task) => task.isDeleted);
+        this.todoFiltered = this.todoList.filter((task) => !task.finished);
         break;
       default:
-        this.todoFiltered = this.todoList;
+        this.todoFiltered = [...this.todoList];
         break;
     }
   }
