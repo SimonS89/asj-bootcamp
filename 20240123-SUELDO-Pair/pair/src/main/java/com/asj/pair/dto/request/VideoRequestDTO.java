@@ -7,21 +7,19 @@ public class VideoRequestDTO {
 
     private String url;
     private String title;
-    private int categoryId;
+    private int category;
     private String description;
 
     public VideoRequestDTO() {
     }
     
-    public VideoRequestDTO(String url, String title, int categoryId, String description) {
+    public VideoRequestDTO(String url, String title, int category, String description) {
 		super();
 		this.url = url;
 		this.title = title;
-		this.categoryId = categoryId;
+		this.category = category;
 		this.description = description;
 	}
-
-
 
 	public String getUrl() {
         return url;
@@ -39,12 +37,12 @@ public class VideoRequestDTO {
         this.title = title;
     }
 
-    public int getCategoryId() {
-        return categoryId;
+    public int getCategory() {
+        return category;
     }
 
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
+    public void setCategory(int category) {
+        this.category = category;
     }
 
     public String getDescription() {

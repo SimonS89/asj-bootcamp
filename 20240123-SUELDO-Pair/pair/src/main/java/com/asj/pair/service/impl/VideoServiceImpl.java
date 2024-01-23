@@ -32,7 +32,7 @@ public class VideoServiceImpl implements VideoService {
     @Override
     public VideoResponseDTO create(VideoRequestDTO videoReq) {
         Video video = mapper.map(videoReq, Video.class);
-        video.setCategory(categoryService.findById(videoReq.getCategoryId()));
+        video.setCategory(categoryService.findById(videoReq.getCategory()));
         VideoResponseDTO videoResp = mapper.map(videoRepository.save(video), VideoResponseDTO.class);
         videoResp.setRanking(0);
         return videoResp;
