@@ -4,6 +4,7 @@ import com.asj.pair.dto.request.VideoLikedRequestDTO;
 import com.asj.pair.dto.request.VideoRatingRequestDTO;
 import com.asj.pair.dto.request.VideoRequestDTO;
 import com.asj.pair.dto.response.VideoResponseDTO;
+import com.asj.pair.model.Category;
 import com.asj.pair.model.Video;
 import com.asj.pair.service.VideoService;
 import org.modelmapper.ModelMapper;
