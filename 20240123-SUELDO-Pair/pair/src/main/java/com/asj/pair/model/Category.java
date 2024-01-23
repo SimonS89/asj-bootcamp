@@ -7,40 +7,40 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Category {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	private String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    private String name;
 
-	public Category(Integer id, String name) {
-		super();
-		this.id = id;
-		this.name = name;
-	}
+    public Category(Integer id, String name) {
+        super();
+        this.id = id;
+        this.name = name;
+    }
 
-	public Category(String name) {
-		super();
-		this.name = name;
-	}
+    public Category(String name) {
+        super();
+        this.name = name;
+    }
 
-	public Category() {
-		super();
-	}
+    public Category() {
+        super();
+    }
 
-	public Integer getId() {
-		return id;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
 }
