@@ -18,4 +18,6 @@ public interface VideoService {
     List<VideoResponseDTO> getByCategory(int id);
 
     VideoResponseDTO addRating(int id, VideoRatingRequestDTO videoRatingReq);
+
+    List<VideoResponseDTO> filterByTitle(String title);
 }

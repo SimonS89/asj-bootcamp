@@ -56,6 +56,11 @@ public class VideoController {
     public ResponseEntity<List<VideoResponseDTO>> findAll(@PathVariable int id) {
         return ResponseEntity.status(HttpStatus.OK).body(videoService.getByCategory(id));
     }
+    
+    @GetMapping("/filter_by_title")
+    public ResponseEntity<List<VideoResponseDTO>> findAll(@RequestParam String title) {
+        return ResponseEntity.status(HttpStatus.OK).body(videoService.filterByTitle(title));
+    }
 
     @PatchMapping("/ratings/{id}")
     public ResponseEntity<VideoResponseDTO> addRating(@PathVariable int id, @RequestBody VideoRatingRequestDTO videoRatingReq){

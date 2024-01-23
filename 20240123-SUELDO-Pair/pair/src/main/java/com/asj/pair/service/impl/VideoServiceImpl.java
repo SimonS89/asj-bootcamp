@@ -17,14 +17,14 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class VideServiceImpl implements VideoService {
+public class VideoServiceImpl implements VideoService {
 
     private final VideoRepository videoRepository;
     private final CategoryService categoryService;
 
     private final ModelMapper mapper = new ModelMapper();
 
-    public VideServiceImpl(VideoRepository videoRepository, CategoryService categoryService) {
+    public VideoServiceImpl(VideoRepository videoRepository, CategoryService categoryService) {
         this.videoRepository = videoRepository;
         this.categoryService = categoryService;
     }
@@ -50,13 +50,7 @@ public class VideServiceImpl implements VideoService {
     @Override
     public List<VideoResponseDTO> findAll() {
         List<Video> videos = videoRepository.findAll();
-        List<VideoResponseDTO> videosResp = new ArrayList<>();
-        if (!videos.isEmpty()) {
-            for (Video video : videos) {
-                VideoResponseDTO videoResp = getVideoResponseDTO(video);
-                videosResp.add(videoResp);
-            }
-        }
+        List<VideoResponseDTO> videosResp = getVideosResponseDTOS(videos);
         return videosResp;
     }
 
@@ -93,13 +87,7 @@ public class VideServiceImpl implements VideoService {
     @Override
     public List<VideoResponseDTO> getByCategory(int id) {
         List<Video> videos = videoRepository.findByCategory_Id(id);
-        List<VideoResponseDTO> videosResp = new ArrayList<>();
-        if (!videos.isEmpty()) {
-            for (Video video : videos) {
-                VideoResponseDTO videoResp = getVideoResponseDTO(video);
-                videosResp.add(videoResp);
-            }
-        }
+        List<VideoResponseDTO> videosResp = getVideosResponseDTOS(videos);
         return videosResp;
     }
 
@@ -114,6 +102,24 @@ public class VideServiceImpl implements VideoService {
         return getVideoResponseDTO(video);
     }
 
+    @Override
+    public List<VideoResponseDTO> filterByTitle(String title) {
+        List<Video> videos = videoRepository.findByTitleContainingIgnoreCase(title);
+        List<VideoResponseDTO> videosResp = getVideosResponseDTOS(videos);
+        return videosResp;
+    }
+
+    private List<VideoResponseDTO> getVideosResponseDTOS(List<Video> videos) {
+        List<VideoResponseDTO> videosResp = new ArrayList<>();
+        if (!videos.isEmpty()) {
+            for (Video video : videos) {
+                VideoResponseDTO videoResp = getVideoResponseDTO(video);
+                videosResp.add(videoResp);
+            }
+        }
+        return videosResp;
+    }
+
 
     private VideoResponseDTO getVideoResponseDTO(Video video) {
         VideoResponseDTO videoResp = mapper.map(video, VideoResponseDTO.class);
@@ -124,7 +130,7 @@ public class VideServiceImpl implements VideoService {
     }
 
     private double calculateRanking(int total, int quantity) {
-    	double result = (double) total / quantity;
-    	 return Math.round(result * 100.0) / 100.0;
+        double result = (double) total / quantity;
+        return Math.round(result * 100.0) / 100.0;
     }
 }
