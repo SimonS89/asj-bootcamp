@@ -1,0 +1,14 @@
+C:\Users\strip\Desktop\Practica\cNet\IntroCSharpBackend\IntroCSharpBackend\bin\Debug\net8.0\IntroCSharpBackend.exe
+C:\Users\strip\Desktop\Practica\cNet\IntroCSharpBackend\IntroCSharpBackend\bin\Debug\net8.0\IntroCSharpBackend.deps.json
+C:\Users\strip\Desktop\Practica\cNet\IntroCSharpBackend\IntroCSharpBackend\bin\Debug\net8.0\IntroCSharpBackend.runtimeconfig.json
+C:\Users\strip\Desktop\Practica\cNet\IntroCSharpBackend\IntroCSharpBackend\bin\Debug\net8.0\IntroCSharpBackend.dll
+C:\Users\strip\Desktop\Practica\cNet\IntroCSharpBackend\IntroCSharpBackend\bin\Debug\net8.0\IntroCSharpBackend.pdb
+C:\Users\strip\Desktop\Practica\cNet\IntroCSharpBackend\IntroCSharpBackend\obj\Debug\net8.0\IntroCSharpBackend.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\strip\Desktop\Practica\cNet\IntroCSharpBackend\IntroCSharpBackend\obj\Debug\net8.0\IntroCSharpBackend.AssemblyInfoInputs.cache
+C:\Users\strip\Desktop\Practica\cNet\IntroCSharpBackend\IntroCSharpBackend\obj\Debug\net8.0\IntroCSharpBackend.AssemblyInfo.cs
+C:\Users\strip\Desktop\Practica\cNet\IntroCSharpBackend\IntroCSharpBackend\obj\Debug\net8.0\IntroCSharpBackend.csproj.CoreCompileInputs.cache
+C:\Users\strip\Desktop\Practica\cNet\IntroCSharpBackend\IntroCSharpBackend\obj\Debug\net8.0\IntroCSharpBackend.dll
+C:\Users\strip\Desktop\Practica\cNet\IntroCSharpBackend\IntroCSharpBackend\obj\Debug\net8.0\refint\IntroCSharpBackend.dll
+C:\Users\strip\Desktop\Practica\cNet\IntroCSharpBackend\IntroCSharpBackend\obj\Debug\net8.0\IntroCSharpBackend.pdb
+C:\Users\strip\Desktop\Practica\cNet\IntroCSharpBackend\IntroCSharpBackend\obj\Debug\net8.0\IntroCSharpBackend.genruntimeconfig.cache
+C:\Users\strip\Desktop\Practica\cNet\IntroCSharpBackend\IntroCSharpBackend\obj\Debug\net8.0\ref\IntroCSharpBackend.dll

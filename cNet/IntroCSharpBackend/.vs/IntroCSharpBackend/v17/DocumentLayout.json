@@ -1,0 +1,85 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\strip\\Desktop\\Practica\\cNet\\IntroCSharpBackend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BAD2B13C-F22F-4D22-9AA3-1F728C4A0937}|IntroCSharpBackend\\IntroCSharpBackend.csproj|c:\\users\\strip\\desktop\\practica\\cnet\\introcsharpbackend\\introcsharpbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAD2B13C-F22F-4D22-9AA3-1F728C4A0937}|IntroCSharpBackend\\IntroCSharpBackend.csproj|solutionrelative:introcsharpbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAD2B13C-F22F-4D22-9AA3-1F728C4A0937}|IntroCSharpBackend\\IntroCSharpBackend.csproj|c:\\users\\strip\\desktop\\practica\\cnet\\introcsharpbackend\\introcsharpbackend\\serialdeserial\\people.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAD2B13C-F22F-4D22-9AA3-1F728C4A0937}|IntroCSharpBackend\\IntroCSharpBackend.csproj|solutionrelative:introcsharpbackend\\serialdeserial\\people.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAD2B13C-F22F-4D22-9AA3-1F728C4A0937}|IntroCSharpBackend\\IntroCSharpBackend.csproj|c:\\users\\strip\\desktop\\practica\\cnet\\introcsharpbackend\\introcsharpbackend\\generics\\mylist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAD2B13C-F22F-4D22-9AA3-1F728C4A0937}|IntroCSharpBackend\\IntroCSharpBackend.csproj|solutionrelative:introcsharpbackend\\generics\\mylist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAD2B13C-F22F-4D22-9AA3-1F728C4A0937}|IntroCSharpBackend\\IntroCSharpBackend.csproj|c:\\users\\strip\\desktop\\practica\\cnet\\introcsharpbackend\\introcsharpbackend\\interfaces\\isave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAD2B13C-F22F-4D22-9AA3-1F728C4A0937}|IntroCSharpBackend\\IntroCSharpBackend.csproj|solutionrelative:introcsharpbackend\\interfaces\\isave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "People.cs",
+              "DocumentMoniker": "C:\\Users\\strip\\Desktop\\Practica\\cNet\\IntroCSharpBackend\\IntroCSharpBackend\\serialDeserial\\People.cs",
+              "RelativeDocumentMoniker": "IntroCSharpBackend\\serialDeserial\\People.cs",
+              "ToolTip": "C:\\Users\\strip\\Desktop\\Practica\\cNet\\IntroCSharpBackend\\IntroCSharpBackend\\serialDeserial\\People.cs",
+              "RelativeToolTip": "IntroCSharpBackend\\serialDeserial\\People.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-05T01:56:43.252Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MyList.cs",
+              "DocumentMoniker": "C:\\Users\\strip\\Desktop\\Practica\\cNet\\IntroCSharpBackend\\IntroCSharpBackend\\generics\\MyList.cs",
+              "RelativeDocumentMoniker": "IntroCSharpBackend\\generics\\MyList.cs",
+              "ToolTip": "C:\\Users\\strip\\Desktop\\Practica\\cNet\\IntroCSharpBackend\\IntroCSharpBackend\\generics\\MyList.cs",
+              "RelativeToolTip": "IntroCSharpBackend\\generics\\MyList.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-05T01:35:37.188Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ISave.cs",
+              "DocumentMoniker": "C:\\Users\\strip\\Desktop\\Practica\\cNet\\IntroCSharpBackend\\IntroCSharpBackend\\interfaces\\ISave.cs",
+              "RelativeDocumentMoniker": "IntroCSharpBackend\\interfaces\\ISave.cs",
+              "ToolTip": "C:\\Users\\strip\\Desktop\\Practica\\cNet\\IntroCSharpBackend\\IntroCSharpBackend\\interfaces\\ISave.cs",
+              "RelativeToolTip": "IntroCSharpBackend\\interfaces\\ISave.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-05T01:27:18.447Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\strip\\Desktop\\Practica\\cNet\\IntroCSharpBackend\\IntroCSharpBackend\\Program.cs",
+              "RelativeDocumentMoniker": "IntroCSharpBackend\\Program.cs",
+              "ToolTip": "C:\\Users\\strip\\Desktop\\Practica\\cNet\\IntroCSharpBackend\\IntroCSharpBackend\\Program.cs",
+              "RelativeToolTip": "IntroCSharpBackend\\Program.cs",
+              "ViewState": "AQIAAGQAAAAAAAAAAAAwwG8AAABcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-05T01:22:21.381Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+<div class="row text-center align-middle">
+  <div class="col-md-7">
+    <h3>Listado de Usuarios</h3>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Avatar</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody class="align-middle">
+        <tr *ngFor="let u of usuarios">
+          <td width="100px">
+            <img src="{{ u.avatar }}" alt="{{ u.first_name }}" />
+          </td>
+          <td>{{ u.first_name }}</td>
+          <td>{{ u.last_name }}</td>
+          <td>
+            <button
+              class="btn btn-sm btn-outline-danger"
+              (click)="eliminar(u.id)"
+            >
+              Eliminar
+            </button>
+            <button
+              class="btn btn-sm btn-outline-secondary"
+              (click)="update(u)"
+            >
+              Modificar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-5 px-5">
+    <h3>Nuevo Usuarioo</h3>
+    <form #myForm="ngForm" (ngSubmit)="create(myForm)">
+      <div class="mb-3">
+        <input
+          type="text"
+          name="id"
+          hidden
+          [(ngModel)]="userService.datosUsuario.id"
+        />
+        <label for="nombre" class="form-label">Nombre</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nombre"
+          placeholder="Nombre"
+          name="name"
+          [(ngModel)]="userService.datosUsuario.name"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="trabajo" class="form-label">Trabajo</label>
+        <input
+          type="text"
+          class="form-control"
+          id="trabajo"
+          placeholder="Trabajo"
+          name="job"
+          [(ngModel)]="userService.datosUsuario.job"
+        />
+      </div>
+      <button type="submit" class="btn btn-outline-primary me-2">Guardar</button
+      ><button class="btn btn-outline-dark">Limpiar</button>
+    </form>
+  </div>
+</div>

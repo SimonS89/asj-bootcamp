@@ -1,0 +1,10 @@
+<div class="container" style="min-height: 75vh">
+  <div class="row gap">
+    <div *ngIf="showSidebar" class="col-3" style="margin-top: 16vh">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div [ngClass]="{ 'col-9': showSidebar, 'col-12': !showSidebar }">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

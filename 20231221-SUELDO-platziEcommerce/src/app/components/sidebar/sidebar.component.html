@@ -1,0 +1,51 @@
+<div class="d-flex flex-column flex-shrink-0 p-3 bg-light">
+  <span class="fs-4">Filtros</span>
+  <hr />
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li class="nav-item">
+      <label for="title">Título</label>
+      <input
+        (input)="filterByTitle()"
+        type="text"
+        id="titleValue"
+        name="titleValue"
+        [(ngModel)]="titleValue"
+      />
+    </li>
+    <li>
+      <label for="price">Precio</label>
+      <input
+        (input)="filterByPrice()"
+        type="number"
+        id="price"
+        name="price"
+        [(ngModel)]="priceValue"
+      />
+    </li>
+    <li>
+      <label for="rango">Rango de Precio</label>
+      <input
+        placeholder="Mínimo"
+        (input)="filterByPriceRange()"
+        type="number"
+        id="minPrice"
+        name="minPrice"
+        [(ngModel)]="minPriceValue"
+      />
+
+      <input
+        class="mt-2"
+        placeholder="Máximo"
+        type="number"
+        (input)="filterByPriceRange()"
+        id="maxPrice"
+        name="maxPrice"
+        [(ngModel)]="maxPriceValue"
+      />
+    </li>
+  </ul>
+  <button class="btn btn-sm mt-2 text-white">Filtrar</button>
+  <button class="btn btn-sm mt-2 text-white" (click)="limpiar()">
+    Limpiar
+  </button>
+</div>
